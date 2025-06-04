@@ -24,6 +24,8 @@ The goal of this project is to accurately detect deepfakes using models trained 
 The FaceForensics++ dataset **cannot be downloaded directly**. To access the data, you must fill out a request form as described in the [official FaceForensics++ GitHub repository](https://github.com/ondyari/FaceForensics). After approval, you will receive download instructions and credentials.
 
 ## Project Structure
+
+```
 .
 ├── extract_frames.py          # Extracts frames from videos
 ├── extract_faces.py           # Detects and saves faces from frames
@@ -31,6 +33,7 @@ The FaceForensics++ dataset **cannot be downloaded directly**. To access the dat
 ├── evaluate.py                # Evaluates individual models
 ├── ensemble.py                # Ensemble evaluation using multiple models
 └── (your data and weights folders, not included)
+```
 
 
 
