@@ -1,6 +1,6 @@
 # Deepfake Detection on FaceForensics++ (FF++)
 
-This repository contains the codebase for training, evaluating, and ensembling deepfake detection models using the [FaceForensics++ (FF++)](https://github.com/ondyari/FaceForensics) dataset. The project focuses on binary classification (real vs. fake) using convolutional neural networks (Xception) and includes tools for preprocessing video data, extracting faces, and evaluating models.
+This repository contains the codebase for training, evaluating, and ensembling deepfake detection models using the [FaceForensics++ (FF++)](https://github.com/ondyari/FaceForensics) dataset. The project focuses on both binary classification (real vs. fake) and multiclass classification (different types of manipulations) using convolutional neural networks (Xception) and includes tools for preprocessing video data, extracting faces, and evaluating models.
 
 ## Table of Contents
 
@@ -16,12 +16,13 @@ This repository contains the codebase for training, evaluating, and ensembling d
 
 ## Overview
 
-The goal of this project is to accurately detect deepfakes using models trained on the FaceForensics++ dataset. The code supports the full pipeline, from frame extraction and face cropping, to training and ensemble-based evaluation of multiple models specialized for different manipulation techniques.
+The goal of this project is to accurately detect deepfakes using models trained on the FaceForensics++ dataset. The code supports the full pipeline, from frame extraction and face cropping, to training and ensemble-based evaluation of multiple models specialized for different manipulation techniques, including multiclass classification.
 
 ## Dataset Access
 
 **IMPORTANT:**  
 The FaceForensics++ dataset **cannot be downloaded directly**. To access the data, you must fill out a request form as described in the [official FaceForensics++ GitHub repository](https://github.com/ondyari/FaceForensics). After approval, you will receive download instructions and credentials.
+
 
 ## Project Structure
 
@@ -30,10 +31,12 @@ The FaceForensics++ dataset **cannot be downloaded directly**. To access the dat
 ├── extract_frames.py          # Extracts frames from videos
 ├── extract_faces.py           # Detects and saves faces from frames
 ├── Train_Binary_Model.py      # Trains a binary classifier (Xception)
+├── Multiclass.py              # Trains and evaluates a multiclass classifier (Xception)
 ├── evaluate.py                # Evaluates individual models
 ├── ensemble.py                # Ensemble evaluation using multiple models
 └── (your data and weights folders, not included)
 ```
+
 
 
 
@@ -47,7 +50,8 @@ The FaceForensics++ dataset **cannot be downloaded directly**. To access the dat
    - Use `extract_faces.py` to crop faces from each frame (requires [MTCNN](https://github.com/ipazc/mtcnn) and Pillow).
 
 3. **Train models:**  
-   - Use `Train_Binary_Model.py` to train an Xception-based classifier on the preprocessed data.
+   - Use `Train_Binary_Model.py` for binary (real vs. fake) classification.
+   - Use `Multiclass.py` for multiclass classification (detecting specific manipulation types).
 
 4. **Evaluate models:**  
    - Use `evaluate.py` to generate classification reports for each model.
@@ -63,6 +67,9 @@ Detects and crops faces from the extracted frames, saving each face as a separat
 
 ### `Train_Binary_Model.py`
 Trains an Xception-based binary classifier (real vs. fake) with data augmentation, validation, and logging.
+
+### `Multiclass.py`
+Trains and evaluates an Xception-based multiclass classifier to distinguish between real and multiple types of manipulations (e.g., FaceSwap, Deepfakes, NeuralTextures, Face2Face). Generates performance reports and confusion matrices.
 
 ### `evaluate.py`
 Evaluates the performance of trained models on test data, outputs classification reports and confusion matrices.
