@@ -25,12 +25,13 @@ The FaceForensics++ dataset **cannot be downloaded directly**. To access the dat
 
 ## Project Structure
 .
-├── extract_frames.py # Extracts frames from videos
-├── extract_faces.py # Detects and saves faces from frames
-├── Train_Binary_Model.py # Trains a binary classifier (Xception)
-├── evaluate.py # Evaluates individual models
-├── ensemble.py # Ensemble evaluation using multiple models
+├── extract_frames.py          # Extracts frames from videos
+├── extract_faces.py           # Detects and saves faces from frames
+├── Train_Binary_Model.py      # Trains a binary classifier (Xception)
+├── evaluate.py                # Evaluates individual models
+├── ensemble.py                # Ensemble evaluation using multiple models
 └── (your data and weights folders, not included)
+
 
 
 ## How to Use
@@ -78,5 +79,6 @@ Developed by:
 
 - **Manuel Muñoz**
 - **Aldrin Chavez**
+
 
 
